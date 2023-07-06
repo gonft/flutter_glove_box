@@ -151,11 +151,13 @@ void testGoldens(
   String description,
   Future<void> Function(WidgetTester) test, {
   bool? skip,
+  TestVariant<Object?> variant = const DefaultTestVariant(),
   Object? tags = _defaultTagObject,
 }) {
   final dynamic config = Zone.current[#goldentoolkit.config];
   testWidgets(
     description,
+    variant: variant,
     (tester) async {
       Future<void> body() async {
         _inGoldenTest = true;
